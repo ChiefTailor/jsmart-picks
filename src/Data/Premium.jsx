@@ -1,22 +1,58 @@
-import PremiumServicesData from './PremiumServicesData'
+import { useEffect } from "react";
+import PremiumServicesData from "./PremiumServicesData";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Premium = () => {
-  return (
-      <div className="flex flex-col items-center justify-center">
-           <div className="">
-            <h1 className="text-[2rem] text-center sm:text-left font-bold font-serif text-[#9a0141] shawdow-[#bf0050]/50">Premium Services</h1>
-            <div className="grid grid-cols-3 gap-[3vw] border-t-8 border-[#bf0050]">
-                {PremiumServicesData.map((Card)=>(
-                    <div key={Card.id} className="border-3 rounded-[15px] shadow-xl shadow-[#bf0050]/10 p-4">
-                        <img src={Card.image} alt={Card.desc} className=" rounded-[15px] w-30 h-20 mt-[2vh]"/>
-                        <p className="font-bold text-2xl mt-[1vh] font-serif text-[#a2014d]">{Card.title}</p>
-                        <p className="font-mono text-l text-[#c3024f] shadow-purple-900/50">{Card.desc}</p>
-                    </div>
-                ))}
-            </div> 
-          </div>
-        </div>
-  )
-}
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
-export default Premium
+  return (
+    <section
+      className="flex flex-col items-center justify-center w-full px-4 py-10 "
+      aria-labelledby="premium-services-title"
+    >
+      <div className="w-full max-w-6xl">
+        {/* Section Title */}
+        <h1
+          id="premium-services-title"
+          data-aos="fade-up"
+          className="text-3xl sm:text-4xl font-bold font-serif text-[#9a0141] shadow-[#bf0050]/50 mb-6 text-center sm:text-left"
+        >
+          Premium Sports Betting Services
+        </h1>
+
+        {/* Grid of Services */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 border-t-8 border-[#bf0050] pt-6"
+          data-aos="fade-up"
+        >
+          {PremiumServicesData.map((Card, index) => (
+            <article
+              key={Card.id}
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
+              className="bg-white rounded-[15px] shadow-xl shadow-[#bf0050]/10 p-5 flex flex-col items-center text-center transition-all ease-in duration-500
+ hover:scale-105 border-2 hover:border-[#bf0050] hover:shadow-lg "
+            >
+              <img
+                src={Card.image}
+                alt={Card.desc}
+                className="rounded-[20px] w-24 h-24 sm:w-28 sm:h-28 mt-2 object-cover shadow-xl shadow-[#bf0050]/10"
+              />
+              <h2 className="font-bold text-lg sm:text-xl mt-3 font-serif text-[#a2014d]">
+                {Card.title}
+              </h2>
+              <p className="font-mono text-sm sm:text-base text-[#c3024f] mt-2">
+                {Card.desc}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Premium;

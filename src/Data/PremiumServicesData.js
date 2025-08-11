@@ -1,5 +1,5 @@
 import AI from '../Svg/ai insights.svg'
-import graph from '../Svg/bankroll.svg'
+import graph from '/insight.svg'
 import giveaway from '../Svg/giveaway.svg'
 import picks from '../Svg/picks.svg'
 import aii from '../Svg/ai insights.svg'
