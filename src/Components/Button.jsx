@@ -3,7 +3,7 @@ const Button = () => {
   return (
     <>
       <button type="button" className="btn">
-        <strong>JOIN NOW</strong>
+        <strong>Subscribe Now</strong>
         <div id="container-stars">
           <div id="stars" />
         </div>

@@ -4,7 +4,7 @@
     const ContactInfo = () => {
         return (
           <>
-            <div className="card ">
+            <div className="card  ">
               <div className="background">
               </div>
               <div className="logo">
