@@ -91,7 +91,7 @@ const Home = () => {
       style: { backgroundColor: "#bf0050", color: "#fff" },
     });
     setTimeout(() => {
-      window.open("https://discord.gg/hnUux68kAp", "_blank");
+      window.open("https://discord.gg/eU2E6xUf", "_blank");
     }, 1200);
   };
 

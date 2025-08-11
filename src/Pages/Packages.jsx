@@ -33,18 +33,18 @@ const Packages = () => {
   const navigate = useNavigate();
 
   const walletInfo = {
-    USDT: {
-      address: "0x71C03A7a3EDdE91C8EA5E6ab91C83E89bb6e23",
-      network: "BSC (BEP-20)",
-    },
+    // USDT: {
+    //   address: "0x71C03A7a3EDdE91C8EA5E6ab91C83E89bb6e23",
+    //   network: "BSC (BEP-20)",
+    // },
     Bitcoin: {
-      address: "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq",
+      address: "bc1qsjwrzkcmj0sust42wlcvulxvdaw0lg9nhpdsg3",
       network: "Bitcoin",
     },
-    Ethereum: {
-      address: "0x71C03A7a3EDdE91C8EA5E6ab91C83E89bb6e23",
-      network: "ERC-20",
-    },
+    // Ethereum: {
+    //   address: "0x71C03A7a3EDdE91C8EA5E6ab91C83E89bb6e23",
+    //   network: "ERC-20",
+    // },
   };
 
   useEffect(() => {
@@ -151,7 +151,7 @@ const Packages = () => {
     setChatMessages((prev) => [...prev, newUserMessage]);
 
     setTimeout(() => {
-      const isCrypto = ["USDT", "Bitcoin", "Ethereum"].includes(method);
+      const isCrypto = [ "Bitcoin"].includes(method);
 
       if (isCrypto) {
         const wallet = walletInfo[method];
@@ -298,12 +298,10 @@ const Packages = () => {
 
   const paymentMethods = [
     "PayPal",
-    "USDT",
     "Bitcoin",
-    "Ethereum",
     "Chime",
-    "Venmo",
     "ApplePay",
+    "Zelle"
   ];
 
   return (

@@ -38,9 +38,15 @@ const Footer = () => {
           {/* Social Icons */}
           <div className="flex gap-4">
             {[
-              { icon: <DiscordIcon />, href: "#" },
-              { icon: <Twitter size={20} />, href: "#" },
-              { icon: <Instagram size={20} />, href: "#" },
+              { icon: <DiscordIcon />, href: "https://discord.gg/eU2E6xUf" },
+              {
+                icon: <Twitter size={20} />,
+                href: "https://x.com/smart__picks_?s=21",
+              },
+              {
+                icon: <Instagram size={20} />,
+                href: "https://www.instagram.com/j_picks07?igsh=MTNlaGY0a2h1ZmI2YQ%3D%3D&utm_source=qr",
+              },
             ].map(({ icon, href }, idx) => (
               <a
                 key={idx}
@@ -71,19 +77,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Animations */}
-      <style>
-        {`
-          @keyframes pulseSlow {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.15); opacity: 0.35; }
-          }
-          .animate-pulse-slow {
-            animation: pulseSlow 6s ease-in-out infinite;
-          }
-        `}
-      </style>
     </footer>
   );
 };

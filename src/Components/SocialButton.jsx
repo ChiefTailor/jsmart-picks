@@ -56,7 +56,7 @@ const SocialButton = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <a
-                  href="https://discord.gg/example"
+                  href="https://discord.gg/eU2E6xUf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-[#5865F2] hover:bg-[#4752c4] rounded-2xl p-8 transition-all duration-300 h-full shadow-lg shadow-indigo-900/30"
@@ -103,7 +103,7 @@ const SocialButton = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <a
-                  href="https://x.com/smart_"
+                  href="https://x.com/smart__picks_?s=21"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-black hover:bg-gray-900 rounded-2xl p-8 transition-all duration-300 h-full shadow-lg shadow-gray-900/30"
@@ -150,7 +150,7 @@ const SocialButton = () => {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <a
-                  href="https://www.instagram.com/fanduel_smart_picks?igsh=MTNlaGY0a2h1ZmI2YQ%3D%3D&utm_source=qr"
+                  href="https://www.instagram.com/j_picks07?igsh=MTNlaGY0a2h1ZmI2YQ%3D%3D&utm_source=qr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] hover:opacity-90 rounded-2xl p-8 transition-all duration-300 h-full shadow-lg shadow-pink-900/30"
