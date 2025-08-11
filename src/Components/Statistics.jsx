@@ -88,7 +88,7 @@ const StatsCounter = () => {
       />
     </svg>,
   ];
-      const handleScroll = (elementId) => {
+  const handleScroll = (elementId) => {
     const element = document.getElementById(elementId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -161,74 +161,73 @@ const StatsCounter = () => {
     return () => clearInterval(interval);
   }, [isVisible]);
 
- return (
+  return (
     <div ref={containerRef} className="py-16 relative overflow-hidde">
       {/* Glowing Breathing Background */}
       {/* Glowing Breathing Background */}
-<div className="absolute inset-0 -z-10">
-  {/* Large pulsating glow */}
-  <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[50%] pointer-events-none">
-    <div className="absolute inset-0 bg-gradient-to-br from-[#ff0033]/30 via-[#ff0033]/40 to-transparent rounded-lg animate-pulse-slow" />
-  </div>
-  
-  {/* Floating circles */}
-  <svg
-    className="absolute top-1/4 left-1/4 opacity-20 animate-float"
-    width="120"
-    height="120"
-    viewBox="0 0 120 120"
-  >
-    <circle cx="60" cy="60" r="50" fill="#ff0033" />
-  </svg>
-  <svg
-    className="absolute top-1/3 right-1/4 opacity-20 animate-float-delay"
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-  >
-    <circle cx="40" cy="40" r="35" fill="#ff0033" />
-  </svg>
-  <svg
-    className="absolute bottom-1/4 left-10 opacity-20 animate-float"
-    width="60"
-    height="60"
-    viewBox="0 0 60 60"
-  >
-    <circle cx="30" cy="30" r="25" fill="#ff0033" />
-  </svg>
+      <div className="absolute inset-0 -z-10">
+        {/* Large pulsating glow */}
+        <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[50%] pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#ff0033]/30 via-[#ff0033]/40 to-transparent rounded-lg animate-pulse-slow" />
+        </div>
 
-  {/* Diagonal lines pattern */}
-  <svg
-    className="absolute inset-0 w-full h-full opacity-10"
-    preserveAspectRatio="none"
-  >
-    <pattern
-      id="diagonalPattern"
-      x="0"
-      y="0"
-      width="20"
-      height="20"
-      patternUnits="userSpaceOnUse"
-    >
-      <line
-        x1="0"
-        y1="0"
-        x2="20"
-        y2="20"
-        stroke="#ff0033"
-        strokeWidth="1"
-      />
-    </pattern>
-    <rect
-      x="0"
-      y="0"
-      width="100%"
-      height="100%"
-      fill="url(#diagonalPattern)"
-    />
-  </svg>
-</div>
+        {/* Floating circles */}
+        <svg
+          className="absolute top-1/4 left-1/4 opacity-20 animate-float"
+          width="120"
+          height="120"
+          viewBox="0 0 120 120"
+        >
+          <circle cx="60" cy="60" r="50" fill="#ff0033" />
+        </svg>
+        <svg
+          className="absolute top-1/3 right-1/4 opacity-20 animate-float-delay"
+          width="80"
+          height="80"
+          viewBox="0 0 80 80"
+        >
+          <circle cx="40" cy="40" r="35" fill="#ff0033" />
+        </svg>
+        <svg
+          className="absolute bottom-1/4 left-10 opacity-20 animate-float"
+          width="60"
+          height="60"
+          viewBox="0 0 60 60"
+        >
+          <circle cx="30" cy="30" r="25" fill="#ff0033" />
+        </svg>
 
+        {/* Diagonal lines pattern */}
+        <svg
+          className="absolute inset-0 w-full h-full opacity-10"
+          preserveAspectRatio="none"
+        >
+          <pattern
+            id="diagonalPattern"
+            x="0"
+            y="0"
+            width="20"
+            height="20"
+            patternUnits="userSpaceOnUse"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="20"
+              y2="20"
+              stroke="#ff0033"
+              strokeWidth="1"
+            />
+          </pattern>
+          <rect
+            x="0"
+            y="0"
+            width="100%"
+            height="100%"
+            fill="url(#diagonalPattern)"
+          />
+        </svg>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -239,7 +238,7 @@ const StatsCounter = () => {
             >
               {/* Glowing effect on hover */}
               <div className="absolute inset-0 rounded-xl bg-[#ff0033]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              
+
               {/* SVG Icon */}
               {icons[index]}
 
@@ -257,17 +256,17 @@ const StatsCounter = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <button 
-            className="inline-block bg-gradient-to-r from-[#ff0033] to-[#ff5e62] text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-[#ff0033]/30 hover:scale-105 transition-transform duration-300 relative overflow-hidden"
+          <button
+            className="inline-block bg-gradient-to-r from-[#ff0033] to-[#ff5e62] text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-[#ff0033]/30 hover:scale-105 duration-300 relative overflow-hidden transition animate-breathe"
             onClick={() => navigate("/packages")}
           >
-            <span className="relative z-10">Join Our Winning Community Today!</span>
+            <span className="relative z-10">
+              Join Our Winning Community Today!
+            </span>
             <div className="absolute inset-0 bg-gradient-to-r from-[#ff0033] to-[#ff5e62] opacity-70 animate-pulse-slow rounded-full" />
           </button>
         </div>
       </div>
-
-     
     </div>
   );
 };

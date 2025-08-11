@@ -58,7 +58,9 @@ const Footer = () => {
 
         {/* Bottom Row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} J-Smart Picks. All Rights Reserved.</p>
+          <p>
+            © {new Date().getFullYear()} J-Smart Picks. All Rights Reserved.
+          </p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-red-500 transition-colors">
               Privacy Policy

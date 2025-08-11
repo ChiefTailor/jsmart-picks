@@ -24,6 +24,7 @@ import {
   XIcon,
   MenuIcon,
   TrophyIcon,
+  ArrowUp,
 } from "lucide-react";
 import TestimonialCarousel from "../Components/Testimonial";
 import StatsCounter from "../Components/Statistics";
@@ -31,10 +32,43 @@ import TrustedSportsbooks from "../Components/TrustedSport";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const navigate = useNavigate();
+  const [navScrolled, setNavScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setNavScrolled(true);
+      } else {
+        setNavScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
+
+  useEffect(() => {
+    const handleScrollButton = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScrollButton);
+    return () => window.removeEventListener("scroll", handleScrollButton);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const links = [
     { name: "Home", link: "home", icon: <HomeIcon size={18} /> },
@@ -64,8 +98,14 @@ const Home = () => {
   return (
     <div className=" ">
       {/* Navigation */}
-      <nav className="flex items-center justify-between fixed top-0 w-full bg-white font-bold z-30 shadow-md px-4 md:px-10 py-3">
-        <div className="flex items-center justify-between w-full max-w-[1440px] mx-auto bg-white font-bold">
+      <nav
+        className={`flex items-center justify-between fixed top-0 w-full z-30 px-4 md:px-10 py-3 transition-all duration-500 ${
+          navScrolled
+            ? "bg-white shadow-md text-black"
+            : "bg-transparent text-white"
+        }`}
+      >
+        <div className="flex items-center justify-between w-full max-w-[1440px] mx-auto  font-bold">
           <div className="flex items-center gap-3" data-aos="fade-right">
             <img
               src={logo}
@@ -85,7 +125,7 @@ const Home = () => {
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => handleScroll(link.link)}
-                  className="flex items-center gap-2 text-black hover:text-[#bf0050] transition"
+                  className="flex items-center gap-2  hover:text-[#bf0050] transition"
                 >
                   {link.icon}
                   {link.name}
@@ -98,7 +138,7 @@ const Home = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate("/packages")}
-              className="hidden lg:block bg-[#bf0050] text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition"
+              className="hidden lg:block bg-[#bf0050] text-white px-4 py-2 rounded-lg hover:bg-pink-700 transition animate-breathe"
             >
               SUBSCRIBE NOW
               <TrophyIcon className="inline-block ml-2" size={15} />
@@ -107,7 +147,9 @@ const Home = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="lg:hidden text-gray-700 focus:outline-none"
+              className={`lg:hidden text-gray-700 focus:outline-none ${
+                navScrolled ? " text-black" : " text-white"
+              }`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menu"
             >
@@ -129,7 +171,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed top-20 bg-white rounded-lg shadow-xl lg:hidden overflow-hidden z-30 border-2 w-full"
+            className="fixed top-20 bg-white rounded-b-lg shadow-xl lg:hidden overflow-hidden z-30 border-2 w-full"
           >
             <ul className="flex flex-col py-2">
               {links.map((link, index) => (
@@ -192,7 +234,7 @@ const Home = () => {
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
             <button
               className="flex gap-2 px-6 md:px-8 py-3 md:py-6 bg-red-700 text-white text-base md:text-lg rounded-lg font-semibold hover:bg-red-600 hover:shadow-lg hover:shadow-red-600 hover:scale-110 transition"
-             onClick={() => navigate("/packages")}
+              onClick={() => navigate("/packages")}
             >
               <Trophy /> Get Premium Picks
             </button>
@@ -221,7 +263,7 @@ const Home = () => {
       <section id="trusted-sports" className="pt-28" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <TrustedSportsbooks />
-        </div>    
+        </div>
       </section>
 
       {/* Premium */}
@@ -267,20 +309,29 @@ const Home = () => {
           {/* Right Column */}
           <Form />
         </div>
-         <motion.div 
-            className="flex justify-center"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring" }}
+        <motion.div
+          className="flex justify-center"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring" }}
+        >
+          <a
+            href="/packages"
+            className="px-8 py-4 bg-gradient-to-r from-[#ff0033] to-[#ff5e62]  rounded-lg text-xl font-bold shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition animate-breathe text-white z-30"
           >
-            <a 
-              href="/packages"
-              className="px-8 py-4 bg-gradient-to-r from-[#ff0033] to-[#ff5e62]  rounded-lg text-xl font-bold shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all text-white z-30"
-            >
-              Get Started
-            </a>
-          </motion.div>
+            Get Started
+          </a>
+        </motion.div>
       </section>
-
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-[#bf0050] hover:bg-pink-700 text-white p-3 rounded-full shadow-lg hover:scale-110 duration-300 z-50 transition animate-breathe"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp size={20} />
+        </button>
+      )}
       {/* Footer */}
       <Footer />
 

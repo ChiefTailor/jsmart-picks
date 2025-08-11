@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import {  toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Mail } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,7 +10,7 @@ const Form = () => {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
 
   useEffect(() => {
@@ -19,13 +19,18 @@ const Form = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
       toast.error("Please fill in all fields");
       return;
     }

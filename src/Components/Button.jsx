@@ -1,4 +1,3 @@
-
 const Button = () => {
   return (
     <>
@@ -14,6 +13,6 @@ const Button = () => {
       </button>
     </>
   );
-}
+};
 
 export default Button;

@@ -4,7 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-   safelist: [
+  safelist: [
     'animate-pulse-slow',
     'animate-pulse-medium',
     'animate-pulse-fast',
@@ -12,8 +12,17 @@ export default {
     'animate-float-delay',
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        breathe: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.08)' },
+        },
+      },
+      animation: {
+        breathe: 'breathe 2s ease-in-out infinite',
+      },
+    },
   },
   plugins: [],
-}
-
+};

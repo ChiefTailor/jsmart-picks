@@ -1,8 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { useEffect } from "react";
-import Home from '../src/Pages/Home';
-import { ToastContainer } from 'react-toastify';
-import './App.css';
+import Home from "../src/Pages/Home";
+import { ToastContainer } from "react-toastify";
+import "./App.css";
 import Packages from "./Pages/Packages";
 
 // ScrollToTop component
