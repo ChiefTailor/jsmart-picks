@@ -305,7 +305,7 @@ const Packages = () => {
   ];
 
   return (
-    <div className="bg-[url('./Jsmart-bg.png')] mx-auto">
+    <div className="bg-[url('/Jsmart-bg.png')] mx-auto">
       <div className="flex flex-col items-center justify-center py-10 max-w-7xl mx-auto relative">
         <button
           onClick={() => navigate("/")}
